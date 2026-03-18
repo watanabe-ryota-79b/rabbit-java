@@ -45,7 +45,7 @@ src/
 
 ## コーディング規約
 
-- Lombok は `@Getter` / `@Builder` のみ使用する（`@Data` 等は使わない）
+- Lombok は `@Getter` / `@Setter` / `@Builder` のみ使用する（`@Data` 等は使わない）
 - クラスを作成したら必ず対応するテストクラスも作成する
 
 ## 依存関係
