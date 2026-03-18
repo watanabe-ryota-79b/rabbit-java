@@ -1,27 +1,13 @@
-# CodeRabbit 設定ファイル
-# ドキュメント: https://docs.coderabbit.ai/configure/overview
-
 language: ja-JP
 
 reviews:
-  auto_review:
-    enabled: true
-    drafts: false
-
-  profile: chill
-
-  path_filters:
-    - "!**/*.md"
-    - "!**/gradlew"
-    - "!**/gradlew.bat"
-    - "!**/.gradle/**"
-    - "!**/build/**"
-
+  profile: "chill"
+  request_changes_workflow: false
+  high_level_summary: true
+  high_level_summary_placeholder: "@coderabbitai summary"
   poem: false
-  summary: true
-  summary_walkthrough: true
+  review_status: true
   collapse_walkthrough: false
-
   instructions: |
     このプロジェクトのレビュー時は以下の観点を重視してください:
 

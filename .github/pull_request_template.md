@@ -1,6 +1,6 @@
 ## 変更内容
 
-@coderabbit summary
+@coderabbitai summary
 
 ## 変更理由
 
