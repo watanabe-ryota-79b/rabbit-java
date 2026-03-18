@@ -35,14 +35,14 @@ class TableControllerTest {
 
     @Test
     void getTables_returns200WithValidId() throws Exception {
-        when(tableService.getTables()).thenReturn(List.of(
-                TableResponse.builder().id(1).name("Alice").build()
+        when(tableService.getTables(100)).thenReturn(List.of(
+                TableResponse.builder().id(1).name("Item-1").build()
         ));
 
         mockMvc.perform(get("/tables").param("id", "100"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$[0].id").value(1))
-                .andExpect(jsonPath("$[0].name").value("Alice"));
+                .andExpect(jsonPath("$[0].name").value("Item-1"));
     }
 
     @Test

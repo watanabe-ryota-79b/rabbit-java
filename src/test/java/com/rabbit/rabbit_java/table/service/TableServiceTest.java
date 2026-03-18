@@ -12,14 +12,14 @@ class TableServiceTest {
     private final TableService tableService = new TableService();
 
     @Test
-    void getTables_returnsNonEmptyList() {
-        List<TableResponse> result = tableService.getTables();
-        assertThat(result).isNotEmpty();
+    void getTables_returnsListWithSpecifiedCount() {
+        List<TableResponse> result = tableService.getTables(3);
+        assertThat(result).hasSize(3);
     }
 
     @Test
     void getTables_eachItemHasIdAndName() {
-        List<TableResponse> result = tableService.getTables();
+        List<TableResponse> result = tableService.getTables(3);
         result.forEach(item -> {
             assertThat(item.getId()).isPositive();
             assertThat(item.getName()).isNotBlank();
