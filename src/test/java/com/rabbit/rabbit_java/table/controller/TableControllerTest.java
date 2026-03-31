@@ -11,6 +11,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.List;
+import java.util.stream.LongStream;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -35,14 +36,17 @@ class TableControllerTest {
 
     @Test
     void getTables_returns200WithValidId() throws Exception {
-        when(tableService.getTables()).thenReturn(List.of(
-                TableResponse.builder().id(1).name("Alice").build()
-        ));
+        when(tableService.getTables(100)).thenReturn(
+                LongStream.rangeClosed(1, 100)
+                        .mapToObj(i -> TableResponse.builder().id(i).name("Item-" + i).build())
+                        .toList()
+        );
 
         mockMvc.perform(get("/tables").param("id", "100"))
                 .andExpect(status().isOk())
+                .andExpect(jsonPath("$.length()").value(100))
                 .andExpect(jsonPath("$[0].id").value(1))
-                .andExpect(jsonPath("$[0].name").value("Alice"));
+                .andExpect(jsonPath("$[0].name").value("Item-1"));
     }
 
     @Test

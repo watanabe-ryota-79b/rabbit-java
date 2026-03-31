@@ -28,6 +28,6 @@ public class TableController {
         if (bindingResult.hasErrors()) {
             return ResponseEntity.badRequest().build();
         }
-        return ResponseEntity.ok(tableService.getTables());
+        return ResponseEntity.ok(tableService.getTables(request.getId()));
     }
 }
