@@ -8,24 +8,31 @@ reviews:
   poem: false
   review_status: true
   collapse_walkthrough: false
-  instructions: |
-    このプロジェクトのレビュー時は以下の観点を重視してください:
+  auto_review:
+    enabled: true
+    drafts: false
+    ignore_title_keywords:
+      - "WIP"
+  finishing_touches:
+    docstrings:
+      enabled: true
+    unit_tests:
+      enabled: true
+  pre_merge_checks:
+    title:
+      mode: error
+      requirements: "rabbit-javaのprefixがついていること"
+    custom_checks:
+      - name: "テストコードの確認"
+        mode: error
+        instructions: "新規関数にはユニットテストが必ず存在すること"
 
-    ## アーキテクチャ
-    - Spring の3層アーキテクチャ（Controller → Service → Repository）に従っているか
-    - パッケージ構成がドメイン単位になっているか
-
-    ## コーディング規約
-    - Lombok は @Getter / @Builder のみ使用しているか（@Data 等は使わない）
-    - 新しいクラスに対応するテストクラスが作成されているか
-
-    ## セキュリティ
-    - SQL インジェクション、XSS などの脆弱性がないか
-    - 認証・認可の漏れがないか
-
-    ## テスト
-    - JUnit 5 を使用しているか
-    - テストの網羅性は十分か
+knowledge_base:
+  learnings:
+    scope: local
+  code_guidelines:
+    enabled: true
+    filePatterns: ["ADR/*"]
 
 chat:
   auto_reply: true

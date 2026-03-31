@@ -37,6 +37,10 @@ src/
     RabbitJavaApplicationTests.java
 ```
 
+## ブランチルール
+
+- ブランチ名は `feature/{機能名}` の形式で作成する
+
 ## コミットルール
 
 - コミットメッセージは日本語で記述する
