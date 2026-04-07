@@ -18,42 +18,6 @@ reviews:
       enabled: true
     unit_tests:
       enabled: true
-  instructions: |
-    このプロジェクトのレビュー時は以下の観点を重視してください:
-
-    ## アーキテクチャ（ADR-001）
-    - Controller → Service → Repository の3層アーキテクチャに従っているか
-    - Controller が Repository を直接参照していないか
-
-    ## パッケージ構成（ADR-002）
-    - パッケージ構成がドメイン単位になっているか
-    - 他ドメインの dto / entity を直接参照していないか
-
-    ## Lombok（ADR-003）
-    - Lombok は @Getter / @Setter / @Builder / @RequiredArgsConstructor のみ使用しているか
-    - @Data / @Value / @AllArgsConstructor は使用していないか
-
-    ## テスト（ADR-004）
-    - クラスに対応するテストクラスが作成されているか
-    - テストフレームワークは JUnit 5、モックは Mockito を使用しているか
-    - Controller のテストは MockMvc スタンドアロンテストになっているか
-    - Service のテストは実クラスを直接インスタンス化しているか
-    - テストの網羅性は十分か
-
-    ## DTO（ADR-005）
-    - Entity を Controller 層に直接返却・参照していないか
-    - リクエストは *Request、レスポンスは *Response DTO を使用しているか
-    - Entity から DTO への変換は Service 層で行っているか
-
-    ## バリデーション（ADR-006）
-    - リクエスト DTO に Bean Validation アノテーションが付与されているか
-    - Controller で @Valid と BindingResult を使用しているか
-    - バリデーションエラー時に 400 Bad Request を返しているか
-    - ビジネスルールの検証は Service 層で IllegalArgumentException をスローしているか
-
-    ## セキュリティ
-    - SQL インジェクション、XSS などの脆弱性がないか
-    - 認証・認可の漏れがないか
 
   pre_merge_checks:
     title:
@@ -63,6 +27,20 @@ reviews:
       - name: "テストコードの確認"
         mode: error
         instructions: "新規関数にはユニットテストが必ず存在すること"
+      - name: ADR準拠チェック
+        mode: error   # warning にすると警告のみ、error にするとマージをブロック
+        instructions: |
+          ADR/ディレクトリ配下のADRに抵触する変更が含まれていないか確認してください。
+          以下の観点でチェックしてください：
+          - ADRで定められたアーキテクチャパターンに従っているか
+          - ADRで禁止されている実装方法を使用していないか
+          - ADRで定義された命名規則・パッケージ構成に従っているか
+          違反がある場合はFAILとし、具体的な違反内容とADR番号を明記してください。
+  path_instructions:
+    - path: "**/*.java"
+      instructions: |
+        ADR/ディレクトリ配下のADR（アーキテクチャ決定記録）に抵触していないか確認してください。
+        ADRで定められた設計方針・命名規則・禁止事項に違反している場合は必ず指摘してください。
 
 knowledge_base:
   learnings:
