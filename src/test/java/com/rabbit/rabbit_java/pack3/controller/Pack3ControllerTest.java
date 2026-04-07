@@ -47,4 +47,10 @@ class Pack3ControllerTest {
         mockMvc.perform(get("/pack3"))
                 .andExpect(status().isBadRequest());
     }
+
+    @Test
+    void addOne_returns400WhenValueExceedsMax() throws Exception {
+        mockMvc.perform(get("/pack3").param("value", "101"))
+                .andExpect(status().isBadRequest());
+    }
 }
