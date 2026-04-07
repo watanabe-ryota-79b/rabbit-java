@@ -1,6 +1,6 @@
-package com.rabbit.rabbit_java.service;
+package com.rabbit.rabbit_java.pack3.service;
 
-import com.rabbit.rabbit_java.dto.Pack3Response;
+import com.rabbit.rabbit_java.pack3.dto.Pack3Response;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

@@ -1,8 +1,8 @@
-package com.rabbit.rabbit_java.controller;
+package com.rabbit.rabbit_java.pack3.controller;
 
-import com.rabbit.rabbit_java.dto.Pack3Request;
-import com.rabbit.rabbit_java.dto.Pack3Response;
-import com.rabbit.rabbit_java.service.Pack3Service;
+import com.rabbit.rabbit_java.pack3.dto.Pack3Request;
+import com.rabbit.rabbit_java.pack3.dto.Pack3Response;
+import com.rabbit.rabbit_java.pack3.service.Pack3Service;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

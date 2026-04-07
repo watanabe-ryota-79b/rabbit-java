@@ -1,4 +1,4 @@
-package com.rabbit.rabbit_java.dto;
+package com.rabbit.rabbit_java.pack3.dto;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;

@@ -1,7 +1,7 @@
-package com.rabbit.rabbit_java.controller;
+package com.rabbit.rabbit_java.pack3.controller;
 
-import com.rabbit.rabbit_java.dto.Pack3Response;
-import com.rabbit.rabbit_java.service.Pack3Service;
+import com.rabbit.rabbit_java.pack3.dto.Pack3Response;
+import com.rabbit.rabbit_java.pack3.service.Pack3Service;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
